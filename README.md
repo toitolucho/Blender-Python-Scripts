@@ -1,5 +1,5 @@
 ### Shapes Generator with blender Wooden Toys
-![Objetivo a crear randomicamente](/WoodenToySahpeHoles/images/Example.png)
+![Objetivo a crear randomicamente](/WoodenToyShapeHoles/images/Example.png)
 
 - Creating basic shapes 
 - Using Boolean Modifier to create holes in the shapes
