@@ -1,4 +1,30 @@
+
 import bpy
+
+
+
+
+def crear_material(nombre, color):    
+    if nombre in bpy.data.materials:
+        print("El color : "+ nombre+ " ya existe; changing...")
+        mat = bpy.data.materials[nombre]
+        mat.diffuse_color = color
+        
+    else:        
+        try:
+
+            mat = bpy.data.materials.new(name=nombre)
+            mat.diffuse_color = color            
+            mat.diffuse_intensity = 1
+            
+
+            
+            print("El color " + nombre+" ha sido creado satisfactoriamente")
+            
+        except:
+            print("Ocurrio un problema al crear el material  " + nombre)
+    return mat;
+
 
 def crearHueco(figura, hueco, pos):
     #Hueco 1 - Traslación
@@ -30,7 +56,7 @@ def crearRectangulo(x,y,z):
     bpy.ops.object.select_all(action='DESELECT')
     bpy.data.objects[hueco.name].select_set(True) 
     bpy.ops.object.delete() 
-    
+    triangulo.name = 'Rectangulo'    
     return triangulo
 
 
@@ -55,7 +81,7 @@ def crearCuadrado(x,y,z):
     bpy.ops.object.select_all(action='DESELECT')
     bpy.data.objects[hueco.name].select_set(True) 
     bpy.ops.object.delete() 
-    
+    triangulo.name = 'Cuadrado'    
     return triangulo
     
 
@@ -76,7 +102,7 @@ def crearTriangulo(x,y,z):
     bpy.ops.object.select_all(action='DESELECT')
     bpy.data.objects[hueco.name].select_set(True) 
     bpy.ops.object.delete() 
-    
+    triangulo.name = 'Triangulo'    
     return triangulo
     
 
@@ -94,7 +120,7 @@ def crearRedondo(x,y,z):
     bpy.ops.object.select_all(action='DESELECT')
     bpy.data.objects[hueco.name].select_set(True) 
     bpy.ops.object.delete() 
-    
+    triangulo.name = 'Redondo'    
     return triangulo
 
 
@@ -116,14 +142,32 @@ def crearPentagono(x,y,z):
     bpy.ops.object.select_all(action='DESELECT')
     bpy.data.objects[hueco.name].select_set(True) 
     bpy.ops.object.delete() 
-    
+    triangulo.name = 'Pentagono'
     return triangulo
 
 
+if len(bpy.data.materials) > 1:
+    for i in range(0, len(bpy.data.materials)):
+        bpy.data.materials.remove(bpy.data.materials[0])
+
+
+colores = []
+colores.append(crear_material('Rojo', (1.0,0,0,1) ))
+colores.append(crear_material('Verde', (0,1,0,1) ))
+colores.append(crear_material('Azul', (0,0,1,1) ))
+
+print(len(colores))
+print(colores[0])
 
 for y in range(1,2):
-    crearRectangulo(0,0,y*0.3)
+    rec = crearRectangulo(0,0,y*0.3)
+    rec.data.materials.append(colores[2])
     crearCuadrado(0,2,y*0.3)
     crearRedondo(0,4,y*0.3)
     crearPentagono(0,6,y*0.3)
-    crearTriangulo(0,8,y*0.3)
+    t1 =crearTriangulo(0,8,y*0.3)
+    print(t1.name)
+    t1.data.materials.append(colores[0])
+    #t1.data.materials[0] = colores[0]
+    t1.active_material_index = len(t1.data.materials) - 1 
+    #activeObject.data.materials.append(mat)
