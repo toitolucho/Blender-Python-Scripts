@@ -14,6 +14,6 @@ def crearCuadrado2(posicion):
 
 for i in range(0,5):
     crearCuadrado(0,i, i*2 )
-    crearCuadrado2((0,-iS, -i*2))
+    crearCuadrado2((0,-i, -i*2))
 
 
