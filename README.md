@@ -120,7 +120,7 @@ for i in range (0,3):
 
 
 #### Refactoring with Hole creator Function
-At this code, we are going to refactor de lines where we create the holes. These are repetead, so  we can create a function that recieves the shape that has to be de hole, the basic shaape where we are going to create de hole and the position
+At this code, we are going to refactor de lines where we create the holes. These are repetead, so  we can create a function that recieves the shape that has to be the hole, the basic shaape where we are going to create the hole and the position
 [Video](https://youtu.be/gTrs7VBQ5Bo "Video")
 
 ```python
