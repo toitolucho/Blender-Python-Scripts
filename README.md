@@ -1,6 +1,6 @@
 
 
-### Shapes Generator with blender Wooden Toys
+### Wooden Toy made with Blender using an scrip shape generator
 ![Objetivo a crear randomicamente](/WoodenToyShapeHoles/images/Example.png)
 
 - Creating basic shapes 
@@ -9,7 +9,7 @@
 - Using Random assignments to colors and positions of the shapes
 
 #### Basic Shapes Creation
-Instrucciones asociadas a la creación de un cubo y un rectangulo
+Steps to create a cube and a rectangule
 [Creación de la figura Cuadrado](https://youtu.be/rvrC9p7qHP0 "Creación de la figura Cuadrado")
 ```python
 bpy.ops.mesh.primitive_cube_add(size=1, enter_editmode=False, align='WORLD', location=(0.5, 0.5, 0), scale=(1, 1, 0.2))
@@ -18,8 +18,8 @@ bpy.ops.transform.translate(value=(0, 0, 0.1), orient_type='GLOBAL', orient_matr
 bpy.ops.mesh.primitive_cube_add(size=1, enter_editmode=False, align='WORLD', location=(0.5, 0.75, 0), scale=(1, 1.5, 0.2))
 bpy.ops.transform.translate(value=(0, 0, 0.1), orient_type='GLOBAL', orient_matrix=((1, 0, 0), (0, 1, 0), (0, 0, 1)), orient_matrix_type='GLOBAL', constraint_axis=(False, False, True), mirror=True, use_proportional_edit=False, proportional_edit_falloff='SMOOTH', proportional_size=1, use_proportional_connected=False, use_proportional_projected=False)
 ```
-#### First steps to create a Cuabe Creator Function
-En un bucle se invoca a la función creada para poder distribuir las figuras en forma de gradas([Video](https://youtu.be/rjI7C2wgtvw "Video"))
+#### First steps to create a Creator Function for a Cube
+We are going to use a repetitive cycle to create a distribution such us a stair with the cubes. You can see the instructions in the following video([Video](https://youtu.be/rjI7C2wgtvw "Video"))
 ```python
 import bpy
 
@@ -38,8 +38,8 @@ for i in range(0,5):
 ```
 ![Objetivo a crear randomicamente](/WoodenToyShapeHoles/images/CuadradosFunciones.png)
 
-#### Steps to create the first hole with Boolean Modifier
-Con el Modificador Boolean de Blender se automatizará la creación de los huecos de las figuras. [Video](https://youtu.be/e72Z9VV9Fk0 "Video")
+#### Steps to create the first hole with Boolean Modifier in the Cube
+Using the Bolean Modifier in Blender, we will be able to add a hole in the shapes.(You can see explication in the following [Video](https://youtu.be/e72Z9VV9Fk0 "Video")
 ```python
 import bpy
 bpy.ops.mesh.primitive_cylinder_add(enter_editmode=False, align='WORLD', location=(0, 0, 0), scale=(1, 1, 1))
